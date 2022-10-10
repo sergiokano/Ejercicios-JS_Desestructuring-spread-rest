@@ -92,16 +92,72 @@ addOnlyNums(1, "perro", 2, 4); //7
 // Escribe una función llamada countTheArgs que pueda recibir cualquier número de argumentos y devuelva un número que indique cuántos argumentos ha recibido.
 
 const countTheArgs = (...argumentos) => {
-  console.log (argumentos.length);
+  console.log(argumentos.length);
 };
 countTheArgs("gato", "perro"); //2
 countTheArgs("naranja", "rojo", "pollo", "oso"); //4
-
 
 // Escribe una función llamada combineTwoArrays que reciba dos array cómo argumentos y devuelva solo un array que combine los dos (usando spread operator).
 
 array1 = ["gato", "perro"]; //2
 array2 = ["naranja", "rojo", "pollo", "oso"]; //4
 
-const combineTwoArrays = [...array1,...array2];
+const combineTwoArrays = [...array1, ...array2];
 console.log(combineTwoArrays);
+
+// 3. Ejercicios Opcionales ***********************
+// Dado el siguiente objeto:
+const HIGH_TEMPERATURES = {
+  yesterday: 30,
+  today: 35,
+  tomorrow: 32,
+};
+
+// Cambiar las siguientes líneas para guardar desestructurando los valores de temperaturas en las variables maximaHoy y maximaManana
+// const maximaHoy = HIGH_TEMPERATURES.today;
+// const maximaManana = HIGH_TEMPERATURES.tomorrow;
+
+const { today: maximaHoy } = HIGH_TEMPERATURES;
+console.log(maximaHoy);
+
+const { tomorrow: maximaManana } = HIGH_TEMPERATURES;
+console.log(maximaManana);
+
+// Escriba una función llamada onlyUniques que acepte cualquier número de argumentos y devuelva un array de elementos únicos, sin repetidos.
+// Lo resuelvo usando el new Set para coger unicamente 1 palabra de cada, sin repetir.
+
+const onlyUniques = (...soloUnicos) => {
+  let soloUnicosFilt = [...new Set(soloUnicos)];
+  console.log(soloUnicosFilt);
+};
+onlyUniques("gato", "pollo", "cerdo", "cerdo"); //['gato', 'pollo', 'cerdo']
+
+onlyUniques(1, 1, 2, 2, 3, 6, 7, 8); //[1, 2, 3, 6, 7, 8]
+
+// Escriba una función llamada combineAllArrays que pueda recibir cualquier cantidad de arrays como argumentos y los combine todos en un solo array.
+
+function combineAllArrays(...arrays) {
+  let newArray = [];
+  for(let i = 0; i < arrays.length; i++) {
+      newArray.push(...arrays[i]);
+  }
+  console.log(newArray);
+}
+
+combineAllArrays([3, 6, 7, 8],[2, 7, 3, 1])
+// [3, 6, 7, 8, 2, 7, 3, 1]
+combineAllArrays([2, 7, 3, 1],[2, 7, 4, 12],[2, 44, 22, 7, 3, 1]);
+// [2, 7, 3, 1, 2, 7, 4, 12, 2, 44, 22, 7, 3, 1]
+
+
+
+// Otro método para hacer este ejercicio sería mediante la posicion del array, línea 173 con new array, el problema es que ahí hay que saber el número total de arrays que hay, por tanto acabé usando la función del for
+
+// let arrayMin = [2, 5, 7, 1, 9];
+// console.log(arrayMin);
+// console.log(...arrayMin);
+// let minimo = Math.min(...arrayMin);
+// console.log(minimo);
+//  const arrayX = [["patata", "tomate", "lechuga"],[1, true, "chocolate"]];
+//  const newArray = [...arrayX[0],...arrayX[1]]; //FUNCIONAAAAAAAAAAAA!!
+// console.log(newArray);
