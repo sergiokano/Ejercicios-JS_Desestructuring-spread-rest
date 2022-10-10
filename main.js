@@ -159,5 +159,34 @@ combineAllArrays([2, 7, 3, 1],[2, 7, 4, 12],[2, 44, 22, 7, 3, 1]);
 // let minimo = Math.min(...arrayMin);
 // console.log(minimo);
 //  const arrayX = [["patata", "tomate", "lechuga"],[1, true, "chocolate"]];
-//  const newArray = [...arrayX[0],...arrayX[1]]; //FUNCIONAAAAAAAAAAAA!!
+//  const newArray = [...arrayX[0],...arrayX[1]]; //Funciona
 // console.log(newArray);
+
+
+// Escriba una función llamada sumAndSquare que reciba cualquier número de argumentos, los eleve al cuadrado y devuelva la suma de todos los valores cuadrados.
+// 1. He sacado los numeros de los arrays juntándolos en uno. 
+// 2. Una vez los tenia en uno (numbers Array) con la función "map" he multiplicado cada número del array por sí mismo, obteniendo el cuadrado de cada uno.
+// 3. Una vez tenía el array convertido a numeros al cuadrado (exponentialNumbersArray) he sumado el array con "reduce"
+
+function sumAndSquare (...numbers) {
+  let numbersArray = [];
+  for(let i = 0; i < numbers.length; i++) {
+      numbersArray.push(...numbers[i]);
+  }
+  let exponentialNumbersArray = numbersArray.map(function(x) {return x * x});
+  // console.log(exponentialNumbersArray);
+  let sumFinal = exponentialNumbersArray.reduce((a,b) => a + b);
+  console.log(sumFinal);
+}
+
+// Declaro unas variables para hacer la operación que comprueba que da bien
+
+let a= 1;
+let b= 2;
+let c= 3;
+let d= 4;
+
+sumAndSquare([a,b],[c,d])
+console.log(a*a+b*b+c*c+d*d)
+
+
