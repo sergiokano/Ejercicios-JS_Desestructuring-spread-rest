@@ -83,7 +83,7 @@ sumEveryOther(11, 3, 12); //26
 const addOnlyNums = (...sumaNumeros) => {
   // console.log(sumaNumeros.reduce((a,b) => a + b));
   console.log(sumaNumeros);
-  let filtrado = sumaNumeros.filter((num) => typeof num == "number");
+  let filtrado = sumaNumeros.filter(num => typeof num == "number");
   console.log(filtrado.reduce((a, b) => a + b));
 };
 
@@ -102,8 +102,17 @@ countTheArgs("naranja", "rojo", "pollo", "oso"); //4
 array1 = ["gato", "perro"]; //2
 array2 = ["naranja", "rojo", "pollo", "oso"]; //4
 
-const combineTwoArrays = [...array1, ...array2];
-console.log(combineTwoArrays);
+const combineTwoArrays = (array1, array2)=>{
+let arrayNew = [...array1,...array2];
+console.log(arrayNew);
+}
+
+// function combineTwoArrays(array1, array2){
+//   let arrayNew = [...array1,...array2];
+//   console.log(arrayNew);
+//   }
+combineTwoArrays(array1,array2)
+
 
 // 3. Ejercicios Opcionales ***********************
 // Dado el siguiente objeto:
